@@ -44,10 +44,11 @@ public class DouBanController {
         room.setRoomOwner(userName);
         roomDao.addRoom(room);
         ModelAndView modelAndView=new ModelAndView("room");
+        modelAndView.addObject("userName",userName);
         return modelAndView;
     }
 
-    @RequestMapping("/createRoom")
+    @RequestMapping("/joinRoom")
     public ModelAndView joinRoom(@RequestParam("roomName") String roomName,@RequestParam("userName") String userName){
         ModelAndView modelAndView=new ModelAndView("room");
         modelAndView.addObject("userName",userName);
@@ -58,13 +59,7 @@ public class DouBanController {
     @RequestMapping(value="/HelloWorld.vue",produces="text/plain")
     @ResponseBody
     public String HelloWorld(){
-        return "";
-    }
-
-    @RequestMapping(value="/hi",produces="text/plain")
-    @ResponseBody
-    public String hello(){
-        return "hi";
+        return "index";
     }
 }
 

@@ -55,25 +55,8 @@ public class MyWebSocket {
     //接收消息   客户端发送过来的消息
     @OnMessage
     public void onMessage(String message, Session session) {
-        System.out.println("【" + session.getId() + "】客户端的发送消息======内容【" + message + "】");
-        String[] split = message.split(",");
-        String sessionId = split[0];
-        Session ss = sessionMap.get(sessionId);
-        if (ss != null) {
-            String msgTo = "【" + session.getId() + "】发送给【您】的消息:\n【" + split[1] + "】";
-            String msgMe = "【我】发送消息给【"+ss.getId()+"】:\n"+split[1];
-            sendMsg(ss, msgTo);
-            sendMsg(session,msgMe);
-        }else {
-            for (Session s : sessionMap.values()) {
-                if (!s.getId().equals(session.getId())) {
-                    sendMsg(s, "【" + session.getId() + "】发送给【您】的广播消息:\n【" + message + "】");
-                } else {
-                    sendMsg(session,"【我】发送广播消息给大家\n"+message);
-                }
-            }
-        }
-
+        System.out.println(message);
+        System.out.println(session);
     }
 
     //异常
@@ -86,7 +69,7 @@ public class MyWebSocket {
 
 
     //统一的发送消息方法
-    public synchronized void sendMsg(Session session, String msg) {
+    private synchronized void sendMsg(Session session, String msg) {
         try {
             session.getBasicRemote().sendText(msg);
         } catch (IOException e) {

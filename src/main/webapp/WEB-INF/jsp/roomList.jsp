@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
     <title>Title</title>
@@ -16,9 +16,9 @@
 
 <c:forEach var="item" items="${roomList}">
         <form action="/joinRoom" method="post">
-            <input hidden type="text" name="roomName" value="${item}">
+            <input hidden type="text" name="roomName" value="${item.roomName}">
             <input hidden type="text" name="userName" value="${userName}">
-            ${item}<input type="submit" value="加入房间">
+            ${item.roomName}<input type="submit" value="加入房间">
         </form>
 </c:forEach>
 
