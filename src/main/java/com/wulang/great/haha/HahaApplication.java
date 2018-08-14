@@ -12,6 +12,7 @@ import javax.servlet.ServletContext;
 @SpringBootApplication
 public class HahaApplication {
 
+	//屎浪
 	public static void main(String[] args) {
 		SpringApplication.run(HahaApplication.class, args);
 	}
