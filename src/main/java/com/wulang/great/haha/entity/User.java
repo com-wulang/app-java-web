@@ -1,6 +1,8 @@
 package com.wulang.great.haha.entity;
 
 public class User {
+    private Integer id;
+
     private String userName;
 
     public String getUserName() {
@@ -9,6 +11,14 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
 
