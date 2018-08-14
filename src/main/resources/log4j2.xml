@@ -41,6 +41,6 @@
             <AppenderRef ref="A"/>
             <AppenderRef ref="B"/>
         </Root>
-        <Logger name="com.wulang.great.haha.controller" level="error" additivity="false"/>
+        <Logger name="com.wulang.great.haha.controller" level="warn"/>
     </Loggers>
 </Configuration>

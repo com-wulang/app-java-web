@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@ServerEndpoint(value = "/webSocket")
-@Component
+//@ServerEndpoint(value = "/webSocket")
+//@Component
 public class MyWebSocket {
 
     //统计在线人数

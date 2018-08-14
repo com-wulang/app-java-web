@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wulang.great.haha.dao.CountryMapper">
+    <resultMap id="BaseResultMap" type="Country">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="countryname" property="countryName" jdbcType="VARCHAR"/>
+        <result column="countrycode" property="countryCode" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="selectOne" resultMap="BaseResultMap">
+		select id,countryname,countrycode from country where id=#{id}
+	</select>
+    <select id="selectAll" resultType="Country">
+		select id,countryname,countrycode from country
+		order by id asc
+	</select>
+    <select id="selectRowNumber" resultType="Country">
+        select id,countryname,countrycode from country
+    </select>
+    <insert id="insert">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+            select nextval('seq_country')
+        </selectKey>
+        insert into country values (#{id},#{countryName},#{countryCode})
+    </insert>
+    <insert id="insertList">
+        insert into country (id,countryname,countrycode)
+        values
+        <foreach collection="countryList" item="item" separator=",">
+            (nextval('seq_country'),#{item.countryName},#{item.countryCode})
+        </foreach>
+    </insert>
+
+    <insert id="insertListLow">
+        <foreach collection="countryList" item="item" separator="">
+            insert into country (id,countryname,countrycode)
+            values
+            (nextval('seq_country'),#{item.countryName},#{item.countryCode});
+        </foreach>
+    </insert>
+    <update id="update">
+		update country set countrycode=#{countryCode} where countryname=#{countryName}
+	</update>
+    <delete id="delete">
+		delete from country where countryname=#{name} or countrycode=#{code}
+	</delete>
+</mapper>
