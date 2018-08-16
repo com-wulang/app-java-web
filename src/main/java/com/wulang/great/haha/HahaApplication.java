@@ -12,13 +12,12 @@ import javax.servlet.ServletContext;
 @SpringBootApplication
 public class HahaApplication {
 
-	//屎浪
-	public static void main(String[] args) {
-		SpringApplication.run(HahaApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(HahaApplication.class, args);
+    }
 
-//	@Bean
-	public ServerEndpointExporter serverEndpointExporter(){
-		return new ServerEndpointExporter();
-	}
+    //	@Bean
+    public ServerEndpointExporter serverEndpointExporter() {
+        return new ServerEndpointExporter();
+    }
 }

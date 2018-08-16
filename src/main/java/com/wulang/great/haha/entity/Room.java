@@ -4,10 +4,9 @@ import java.util.List;
 
 public class Room {
     private String roomName;
-
     private String roomOwner;
 
-    private List<User> memberList;
+    private List<MUser> memberList;
 
     public String getRoomName() {
         return roomName;

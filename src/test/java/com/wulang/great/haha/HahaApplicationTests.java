@@ -18,7 +18,7 @@ public class HahaApplicationTests {
 
     @Test
     public void contextLoads() {
-        Country country=new Country();
+        Country country = new Country();
         country.setCountryCode("1152");
         country.setCountryName("langge");
         countryMapper.insert(country);

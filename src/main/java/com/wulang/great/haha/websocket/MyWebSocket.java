@@ -67,7 +67,6 @@ public class MyWebSocket {
     }
 
 
-
     //统一的发送消息方法
     private synchronized void sendMsg(Session session, String msg) {
         try {

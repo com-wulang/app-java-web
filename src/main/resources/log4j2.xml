@@ -7,27 +7,27 @@
         <Console name="Console" target="SYSTEM_OUT">
             <!-- 需要记录的级别 -->
             <!--<ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY" />-->
-            <PatternLayout pattern="%-d{HH:mm:ss}  [%M] - [ %p ]  %m%n" />
+            <PatternLayout pattern="%-d{HH:mm:ss}  [%M] - [ %p ]  %m%n"/>
         </Console>
 
         <!-- 输出到文件，按天或者超过80MB分割 -->
-        <RollingFile name="A" fileName="logs/log.log"  filePattern="logs/log.log.%d{yyyy-MM-dd}">
+        <RollingFile name="A" fileName="logs/log.log" filePattern="logs/log.log.%d{yyyy-MM-dd}">
             <!-- 需要记录的级别 -->
             <!-- <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY" /> -->
-            <PatternLayout pattern="%-d{HH:mm:ss}  [%t] - [ %p ]  %m%n" />
+            <PatternLayout pattern="%-d{HH:mm:ss}  [%t] - [ %p ]  %m%n"/>
             <Policies>
-                <TimeBasedTriggeringPolicy />
+                <TimeBasedTriggeringPolicy/>
             </Policies>
             <DefaultRolloverStrategy max="500"/>
         </RollingFile>
 
-        <RollingFile name="B" fileName="logs/error.log"  filePattern="logs/error.log.%d{yyyy-MM-dd}">
+        <RollingFile name="B" fileName="logs/error.log" filePattern="logs/error.log.%d{yyyy-MM-dd}">
             <!-- 需要记录的级别 -->
-            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY" />
-            <PatternLayout pattern="%-d{HH:mm:ss}  [%t]  %m%n" />
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%-d{HH:mm:ss}  [%t]  %m%n"/>
             <Policies>
-                <OnStartupTriggeringPolicy />
-                <TimeBasedTriggeringPolicy />
+                <OnStartupTriggeringPolicy/>
+                <TimeBasedTriggeringPolicy/>
             </Policies>
             <DefaultRolloverStrategy max="500"/>
         </RollingFile>
@@ -37,7 +37,7 @@
     </Appenders>
     <Loggers>
         <Root level="info"> <!-- 全局配置 -->
-            <AppenderRef ref="Console" />
+            <AppenderRef ref="Console"/>
             <AppenderRef ref="A"/>
             <AppenderRef ref="B"/>
         </Root>

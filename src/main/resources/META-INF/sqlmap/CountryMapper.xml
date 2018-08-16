@@ -8,12 +8,12 @@
         <result column="countrycode" property="countryCode" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="selectOne" resultMap="BaseResultMap">
-		select id,countryname,countrycode from country where id=#{id}
-	</select>
+        select id,countryname,countrycode from country where id=#{id}
+    </select>
     <select id="selectAll" resultType="Country">
-		select id,countryname,countrycode from country
-		order by id asc
-	</select>
+        select id,countryname,countrycode from country
+        order by id asc
+    </select>
     <select id="selectRowNumber" resultType="Country">
         select id,countryname,countrycode from country
     </select>
@@ -39,9 +39,9 @@
         </foreach>
     </insert>
     <update id="update">
-		update country set countrycode=#{countryCode} where countryname=#{countryName}
-	</update>
+        update country set countrycode=#{countryCode} where countryname=#{countryName}
+    </update>
     <delete id="delete">
-		delete from country where countryname=#{name} or countrycode=#{code}
-	</delete>
+        delete from country where countryname=#{name} or countrycode=#{code}
+    </delete>
 </mapper>
